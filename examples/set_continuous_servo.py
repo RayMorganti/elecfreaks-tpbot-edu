@@ -19,7 +19,9 @@ robot = TPBotEdu()
 # servo is connected.
 servo_port = ServoPort.S1  
 
-# If testing shows that the servo creeps at 0, tune the stop angle.
+# If testing shows that the servo creeps at 0, tune the stop angle, starting
+# at 92 and continuing to adjust downward as needed.  This script was
+# developed using a continuous servo that required a stop angle of 88.
 robot.configure_continuous_servo(ServoPort.S1, stop_angle=88)
 sleep(1)
 
