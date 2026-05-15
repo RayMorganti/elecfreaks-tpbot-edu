@@ -3,7 +3,7 @@ Note:
 - This script is designed for use with a continuous rotation servo.
 - Change `ServoPort.S1` to `ServoPort.S2`, `ServoPort.S3`, or
  `ServoPort.S4` if your servo is plugged into a different port.
-- In this module, `set_continuous_servo_speed(port, speed)`
+- In this module, `set_continuous_servo(port, speed)`
   accepts speeds from `-100` to `100`.
 - `0` maps to the servo stop position near `1500 µs`.
 - One sign of speed will produce clockwise rotation and the other
@@ -19,9 +19,11 @@ robot = TPBotEdu()
 # servo is connected.
 servo_port = ServoPort.S1  
 
-# If testing shows that the servo creeps at 0, tune the stop angle, starting
-# at 92 and continuing to adjust downward as needed.  This script was
-# developed using a continuous servo that required a stop angle of 88.
+# If testing shows that the servo creeps at a speed of 0, you can tune the 
+# stop angle in configure_continuous_servo(ServoPort.S1, stop_angle=90) 
+# method.  Start with a stop angle of 92 and continuing to adjust downward 
+# as needed.  This script was developed using a continuous servo that required 
+# a stop angle of 88.
 robot.configure_continuous_servo(ServoPort.S1, stop_angle=88)
 sleep(1)
 
